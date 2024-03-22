@@ -68,7 +68,7 @@ export default function Page() {
                         loading=""
                         language={language.language}
                         defaultValue={code}
-                        onChange={(v: string) => setCode(v)}
+                        onChange={(v) => setCode(v!)}
                     />
                     <Box className={css({ width: "70%", height: "100%" })()}>
                         <ScrollArea type="scroll" scrollbars="vertical" style={{ height: "100vh" }}>
