@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Inter as Font } from "next/font/google";
+import Providers from "@/components/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+import '@radix-ui/themes/styles.css';
+import './theme-config.css';
+
+const font = Font({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans-1',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={font.variable}>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
